@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MindfulFeed: Designing Social Media Interfaces That Respect User Attention</title>
+  <meta name="description" content="An independent HCI design exploration comparing a conventional and a mindful fictional social media feed.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="kicker">Independent HCI design exploration</p>
+    <h1>MindfulFeed</h1>
+    <p class="subtitle">Designing social media interfaces that respect user attention</p>
+    <nav aria-label="Page sections">
+      <a href="#question">Question</a>
+      <a href="#heuristics">Heuristics</a>
+      <a href="#prototype">Prototype</a>
+      <a href="#decisions">Decisions</a>
+      <a href="#limitations">Limitations</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <section id="question">
+    <h2>Research question</h2>
+    <p class="lead">How might social media feed interfaces be redesigned to support more intentional browsing and greater user control?</p>
+    <p>This is a personal portfolio project by a Computer Engineering undergraduate. It is inspired by the Digital Attention Heuristics of Monge Roffarello, De Russis and Lukoff. It is <strong>not</strong> an official university project, and it has <strong>not</strong> been tested with users.</p>
+    <p class="note"><strong>How to read this page:</strong> the two feeds are fictional, static mockups built with HTML and CSS only. The feeds scroll inside their phone screens, but nothing is clickable and no setting, timer or loading behaviour works. Numbered pins on each mockup match the numbered annotations below it.</p>
+  </section>
+
+  <section id="heuristics">
+    <h2>Design rationale: four attention heuristics</h2>
+    <p>The Digital Attention Heuristics ask designers to respect attention by design, instead of leaving all the effort of self-control to users. This project focuses on four of the eight heuristics.</p>
+    <div class="heuristics">
+      <article>
+        <h3><span class="tag">H1</span> Agency</h3>
+        <p>Support users’ sense of agency, so that time online feels chosen rather than captured.</p>
+        <p class="applied"><strong>Here:</strong> the feed ends, and the user decides whether to continue.</p>
+      </article>
+      <article>
+        <h3><span class="tag">H2</span> Informed Usage</h3>
+        <p>Give users the information they need to decide whether to start or keep going with a session.</p>
+        <p class="applied"><strong>Here:</strong> session time, post counts, and clear content sources.</p>
+      </article>
+      <article>
+        <h3><span class="tag">H3</span> Balance Goal-Directed and Ritualistic Use</h3>
+        <p>Favor quality of time over quantity. The paper lists infinite scroll and autoplay among patterns to minimize.</p>
+        <p class="applied"><strong>Here:</strong> no endless loading, no autoplay, fewer extras.</p>
+      </article>
+      <article>
+        <h3><span class="tag">H4</span> Customization</h3>
+        <p>Let users understand and adapt the environment to their goals, values and wellbeing.</p>
+        <p class="applied"><strong>Here:</strong> a preferences preview. It is a picture, not a working setting.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="prototype">
+    <h2>Comparative prototype</h2>
+    <p>Both feeds belong to a fictional app called “Loopa”. All names, posts, images and numbers are invented. Both feeds contain the same four posts from followed accounts. The Conventional Feed adds extra recommended content, which is listed in the <a href="#parity">content table</a>.</p>
+
+    <div class="compare">
+
+      <!-- ================= CONVENTIONAL FEED ================= -->
+      <section class="feed-col" aria-labelledby="conv-title">
+        <h3 id="conv-title" class="feed-label feed-label--conv">Conventional Feed</h3>
+        <p class="mock-note">Static mockup. Scroll inside the phone screen; nothing else is interactive.</p>
+
+        <div class="phone phone--conv">
+          <div class="app-top">
+            <strong class="logo">Loopa</strong>
+            <span class="badge">New activity</span>
+          </div>
+
+          <div class="screen" tabindex="0" role="region" aria-label="Conventional Feed, scrollable mockup screen. Use arrow keys or Page Down to scroll.">
+
+          <p class="streak pinned">12-day streak. Keep it going: open Loopa every day.<span class="pin" aria-hidden="true">1</span></p>
+
+          <p class="chips"><span>#trending</span><span>#viral</span><span>#for-you</span></p>
+
+          <article class="post">
+            <header class="post-head">
+              <span class="avatar av1" aria-hidden="true">MB</span>
+              <div><p class="name">Marta Bell <span class="label">Following</span></p><p class="handle">@marta.bakes, 2 h ago</p></div>
+            </header>
+            <p class="post-text">Sourdough update: the starter survived the holiday.</p>
+            <div class="post-img img-bread" role="img" aria-label="Illustration of a round loaf of bread on a wooden board"></div>
+            <p class="actions"><span>Like 2.4K</span><span>Comment 118</span><span>Share</span></p>
+          </article>
+
+          <article class="post pinned">
+            <header class="post-head">
+              <span class="avatar av5" aria-hidden="true">TN</span>
+              <div><p class="name">Trail Notes <span class="label">Suggested</span></p><p class="handle">@trailnotes, promoted for you<span class="pin" aria-hidden="true">2</span></p></div>
+            </header>
+            <p class="post-text">You won’t believe what happens at 0:42.</p>
+            <div class="media pinned">
+              <div class="post-img img-trail" role="img" aria-label="Illustration of a video thumbnail showing mountains, with a play symbol"></div>
+              <span class="media-chip">Autoplaying, sound on</span>
+              <span class="pin" aria-hidden="true">3</span>
+            </div>
+            <p class="actions"><span>Like 48.2K</span><span>Comment 3.1K</span><span>Share</span></p>
+          </article>
+
+          <article class="post">
+            <header class="post-head">
+              <span class="avatar av2" aria-hidden="true">LF</span>
+              <div><p class="name">Lena Fraser <span class="label">Following</span></p><p class="handle">@lena.draws, 3 h ago</p></div>
+            </header>
+            <p class="post-text">New sketchbook page: harbour at low tide.</p>
+            <div class="post-img img-harbour" role="img" aria-label="Illustration of a small boat in a harbour at sunset"></div>
+            <p class="actions"><span>Like 860</span><span>Comment 41</span><span>Share</span></p>
+          </article>
+
+          <p class="promo pinned">Because you watched: more videos for you<span class="pin" aria-hidden="true">4</span></p>
+
+          <article class="post">
+            <header class="post-head">
+              <span class="avatar av3" aria-hidden="true">OR</span>
+              <div><p class="name">Omar Reyes <span class="label">Following</span></p><p class="handle">@omar.runs, 5 h ago</p></div>
+            </header>
+            <p class="post-text">Finished my first 10 km. Slow, but done.</p>
+            <div class="post-img img-run" role="img" aria-label="Illustration of a running path through green hills"></div>
+            <p class="actions"><span>Like 1.1K</span><span>Comment 77</span><span>Share</span></p>
+          </article>
+
+          <div class="fade-out pinned">
+            <article class="post">
+              <header class="post-head">
+                <span class="avatar av4" aria-hidden="true">NK</span>
+                <div><p class="name">Nina Kovac <span class="label">Following</span></p><p class="handle">@nina.reads, 6 h ago</p></div>
+              </header>
+              <p class="post-text">Picked up a secondhand paperback today. The spine is already cracked, which is a good sign.</p>
+            </article>
+          </div>
+          <p class="loading pinned">Loading more posts… <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="pin" aria-hidden="true">5</span></p>
+          </div>
+        </div>
+
+        <ol class="annotations" aria-label="Annotations for the Conventional Feed">
+          <li><p class="a-title">Streak banner and activity badge <span class="tag">H1</span></p><p>These create urgency to return each day instead of helping users decide whether a visit is worth their time.</p></li>
+          <li><p class="a-title">Followed and suggested posts look the same <span class="tag">H2</span></p><p>Only a tiny, low-emphasis label separates them, so users may not know why a post is shown.</p></li>
+          <li><p class="a-title">Autoplaying video <span class="tag">H3</span> <span class="tag">H1</span></p><p>Content starts without a user decision. Autoplay is one of the patterns the heuristics suggest minimizing.</p></li>
+          <li><p class="a-title">“Because you watched” strip <span class="tag">H3</span></p><p>It adds more recommended content to extend a session, instead of supporting a specific goal.</p></li>
+          <li><p class="a-title">Endless loading and a faded next post <span class="tag">H1</span> <span class="tag">H2</span></p><p>The feed has no stopping point and no session information. The faded post implies more below. Scroll to the bottom to see the message; nothing actually loads. The fade is an illustration, so its text is intentionally hard to read.</p></li>
+          <li><p class="a-title">No visible controls <span class="tag">H4</span></p><p>Nothing on screen explains or lets users change what they see.</p></li>
+        </ol>
+      </section>
+
+      <!-- ================= MINDFUL FEED ================= -->
+      <section class="feed-col" aria-labelledby="mind-title">
+        <h3 id="mind-title" class="feed-label feed-label--mind">Mindful Feed</h3>
+        <p class="mock-note">Static mockup. Scroll inside the phone screen; nothing else is interactive.</p>
+
+        <div class="phone phone--mind">
+          <div class="app-top">
+            <strong class="logo">Loopa</strong>
+          </div>
+
+          <div class="screen" tabindex="0" role="region" aria-label="Mindful Feed, scrollable mockup screen. Use arrow keys or Page Down to scroll.">
+          <div class="session pinned">
+            <p><strong>This session: 8 min.</strong> Your reminder is set for 15 min (example).</p>
+            <div class="track" aria-hidden="true"><span></span></div>
+            <span class="pin" aria-hidden="true">1</span>
+          </div>
+
+          <h4 class="section-h">From people you follow</h4>
+          <p class="section-sub">Showing 4 posts, newest first.</p>
+
+          <article class="post post--follow pinned">
+            <header class="post-head">
+              <span class="avatar av1" aria-hidden="true">MB</span>
+              <div><p class="name">Marta Bell <span class="label label--follow">Following</span></p><p class="handle">@marta.bakes, 2 h ago</p></div>
+            </header>
+            <span class="pin" aria-hidden="true">2</span>
+            <p class="post-text">Sourdough update: the starter survived the holiday.</p>
+            <div class="post-img img-bread" role="img" aria-label="Illustration of a round loaf of bread on a wooden board"></div>
+            <p class="actions pinned"><span>Like</span><span>Comment</span><span>Share</span><span class="pin" aria-hidden="true">3</span></p>
+          </article>
+
+          <article class="post post--follow">
+            <header class="post-head">
+              <span class="avatar av2" aria-hidden="true">LF</span>
+              <div><p class="name">Lena Fraser <span class="label label--follow">Following</span></p><p class="handle">@lena.draws, 3 h ago</p></div>
+            </header>
+            <p class="post-text">New sketchbook page: harbour at low tide.</p>
+            <div class="post-img img-harbour" role="img" aria-label="Illustration of a small boat in a harbour at sunset"></div>
+            <p class="actions"><span>Like</span><span>Comment</span><span>Share</span></p>
+          </article>
+
+          <article class="post post--follow">
+            <header class="post-head">
+              <span class="avatar av3" aria-hidden="true">OR</span>
+              <div><p class="name">Omar Reyes <span class="label label--follow">Following</span></p><p class="handle">@omar.runs, 5 h ago</p></div>
+            </header>
+            <p class="post-text">Finished my first 10 km. Slow, but done.</p>
+            <div class="post-img img-run" role="img" aria-label="Illustration of a running path through green hills"></div>
+            <p class="actions"><span>Like</span><span>Comment</span><span>Share</span></p>
+          </article>
+
+          <article class="post post--follow">
+            <header class="post-head">
+              <span class="avatar av4" aria-hidden="true">NK</span>
+              <div><p class="name">Nina Kovac <span class="label label--follow">Following</span></p><p class="handle">@nina.reads, 6 h ago</p></div>
+            </header>
+            <p class="post-text">Picked up a secondhand paperback today. The spine is already cracked, which is a good sign.</p>
+            <p class="actions"><span>Like</span><span>Comment</span><span>Share</span></p>
+          </article>
+
+          <div class="end pinned">
+            <p class="end-title">You’re all caught up</p>
+            <p>You’ve seen all 4 posts from people you follow. This is the end of your feed.</p>
+            <span class="pin" aria-hidden="true">4</span>
+          </div>
+
+          <div class="rec-zone pinned">
+            <h4 class="section-h">Recommended, separate from your feed</h4>
+            <p class="section-sub">1 post. You don’t follow this account.</p>
+            <span class="pin" aria-hidden="true">5</span>
+            <article class="post post--rec">
+              <header class="post-head">
+                <span class="avatar av5" aria-hidden="true">TN</span>
+                <div><p class="name">Trail Notes <span class="label label--rec">Recommended</span></p><p class="handle">@trailnotes, shown because recommendations are on</p></div>
+              </header>
+              <p class="post-text">You won’t believe what happens at 0:42.</p>
+              <div class="media">
+                <div class="post-img img-trail" role="img" aria-label="Illustration of a video thumbnail showing mountains, with a play symbol"></div>
+                <span class="media-chip">Video. Does not autoplay.</span>
+              </div>
+              <p class="actions"><span>Like</span><span>Comment</span><span>Share</span></p>
+            </article>
+          </div>
+
+          <section class="prefs pinned" aria-labelledby="prefs-title">
+            <h4 id="prefs-title" class="section-h">Feed preferences</h4>
+            <p class="proto-banner"><strong>Non-interactive prototype.</strong> These controls are a picture of a possible interface. They do not respond to clicks or taps.</p>
+            <span class="pin" aria-hidden="true">6</span>
+            <ul>
+              <li class="pref">
+                <div><p class="pref-name">Feed order</p><p class="pref-state">Current choice: Newest first</p></div>
+                <div class="ctl seg" aria-hidden="true"><span class="on">Newest</span><span>Suggested</span></div>
+              </li>
+              <li class="pref">
+                <div><p class="pref-name">Recommended posts</p><p class="pref-state">On. Shown only after the end of your feed.</p></div>
+                <div class="ctl switch on" aria-hidden="true"></div>
+              </li>
+              <li class="pref">
+                <div><p class="pref-name">Session reminder</p><p class="pref-state">After 15 minutes</p></div>
+                <div class="ctl select" aria-hidden="true">15 min</div>
+              </li>
+              <li class="pref">
+                <div><p class="pref-name">Show like counts</p><p class="pref-state">Off</p></div>
+                <div class="ctl switch" aria-hidden="true"></div>
+              </li>
+            </ul>
+          </section>
+          </div>
+        </div>
+
+        <ol class="annotations" aria-label="Annotations for the Mindful Feed">
+          <li><p class="a-title">Session information <span class="tag">H2</span></p><p>Time so far and the reminder point are visible, so users can decide whether to continue.</p></li>
+          <li><p class="a-title">Followed posts are labelled <span class="tag">H2</span></p><p>A text label and a solid accent border mark accounts the user chose to follow, so the source is clear without relying on colour alone.</p></li>
+          <li><p class="a-title">Quiet cards <span class="tag">H3</span></p><p>There is no autoplay, streak or badge. Like counts are hidden, matching the preferences preview. The intent is to cut cues that are not needed to read a post.</p></li>
+          <li><p class="a-title">Clear feed end <span class="tag">H1</span></p><p>The message states that all 4 followed posts have been seen and nothing loads afterwards. This gives a natural point to stop or choose to go on.</p></li>
+          <li><p class="a-title">Recommendations kept separate <span class="tag">H2</span> <span class="tag">H1</span></p><p>They sit after the end, under their own heading, with a dashed border and a “Recommended” label, so they are optional rather than blended in.</p></li>
+          <li><p class="a-title">Preferences preview <span class="tag">H4</span></p><p>It shows how users could adjust order, recommendations, reminders and counts. It is an illustration only.</p></li>
+        </ol>
+      </section>
+
+    </div>
+  </section>
+
+  <section id="decisions">
+    <h2>Design-decision summary</h2>
+    <p>Each row pairs an attention-capturing pattern in the Conventional Feed with the mindful alternative used in the Mindful Feed.</p>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Design-decision summary table (scrollable)">
+      <table class="flow">
+        <caption>Pattern, alternative and heuristic. This shows design intent, not tested results.</caption>
+        <thead><tr><th scope="col">Attention-capturing pattern</th><th scope="col">Mindful alternative</th><th scope="col">Heuristic</th></tr></thead>
+        <tbody>
+          <tr><td>Streak banner and activity badge</td><td>No streaks or badges; calm header</td><td>H1</td></tr>
+          <tr><td>Endless loading, no end</td><td>Clear “all caught up” end</td><td>H1, H3</td></tr>
+          <tr><td>Autoplaying video with sound</td><td>Still thumbnail, no autoplay</td><td>H3</td></tr>
+          <tr><td>Recommended posts mixed in, tiny labels</td><td>Separate section, heading, label and border</td><td>H2</td></tr>
+          <tr><td>No session information</td><td>Session time, reminder and post count</td><td>H2</td></tr>
+          <tr><td>“Because you watched” strip</td><td>Removed; recommendations only in their own section</td><td>H3</td></tr>
+          <tr><td>No visible controls</td><td>Preferences preview (non-functional)</td><td>H4</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 id="parity" class="sub-h">Content differences between the two feeds</h3>
+    <p>The four followed posts are identical in both feeds. The Conventional Feed deliberately includes extra recommended content, because that is part of what is being compared.</p>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Content differences table (scrollable)">
+      <table>
+        <caption>What is shown in each mockup</caption>
+        <thead><tr><th scope="col">Element</th><th scope="col">Conventional Feed</th><th scope="col">Mindful Feed</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Followed posts</th><td>4 (Marta, Lena, Omar, Nina), interleaved with other content</td><td>The same 4, in a row</td></tr>
+          <tr><th scope="row">Recommended posts</th><td>1 video from Trail Notes, inline, autoplaying</td><td>The same post, once, after the end, separated, no autoplay</td></tr>
+          <tr><th scope="row">Extra elements</th><td>Streak banner, activity badge, trending chips, “Because you watched” strip, loading indicator</td><td>None</td></tr>
+          <tr><th scope="row">Engagement counts</th><td>Shown (invented numbers)</td><td>Hidden, as in the preferences preview</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="limitations">
+    <h2>Limitations</h2>
+    <ul>
+      <li>No user testing has been done, so this project makes no claims about effectiveness.</li>
+      <li>The feeds can be scrolled inside their fixed phone screens, but everything else is static. Session timing, preferences and infinite loading are non-functional: the timer, streak and “Loading more posts…” message are fixed text.</li>
+      <li>The Conventional Feed is a simplified, fictional example, not a model of any real product. Its extra content is an intentional difference between the two mockups.</li>
+      <li>Images are simple CSS illustrations, so they are less realistic than photographs.</li>
+      <li>It covers four of the eight heuristics, and only for a feed screen.</li>
+      <li>A mindful feed may not suit every goal. For example, some users may want content to keep coming. This is a design question to explore, not a settled one.</li>
+    </ul>
+    <p>A suggested future user study is described in the README.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <h2>Reference</h2>
+    <p>Monge Roffarello, A., De Russis, L., &amp; Lukoff, K. (2025). The Digital Attention Heuristics: Supporting the User’s Attention by Design. <em>ACM Transactions on Computer-Human Interaction</em>, 32(4), 1–41. doi:10.1145/3725215</p>
+    <p>The full reference list is in the README. This is an independent student project and is not affiliated with the authors or their institutions.</p>
+  </div>
+</footer>
+
+</body>
+</html>
